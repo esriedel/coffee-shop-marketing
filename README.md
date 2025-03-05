@@ -145,20 +145,14 @@ Taking into account the distribution and differences in scales between the varia
 
 ## Cluster Analysis of Data
 
-A k-means cluster analysis is used to see if there are distinct groups of coffee shops based on qualities about the shop and its operations. To avoid the disproportionate influence of one variable over another due to scale, a standard scaler is applied to the following variables used in the cluster analysis:
+Cluster analysis is used to see if there are distinct groups of coffee shops based on qualities about the shop and its operations. To avoid the disproportionate influence of one variable over another due to scale, a standard scaler is applied to the following variables used in the cluster analysis:
 * Customers
 * Order
 * Hours
 * Employees
 * Traffic
 
-
-
-```python
-shop.rename(columns={'Customers': 'Customers_scaled', 'Order': 'Order_scaled', 'Hours': 'Hours_scaled', 'Employees': 'Employees_scaled', 'Traffic':'Traffic_scaled'}, inplace=True)
-
-```
-
+A k-means cluster analysis technique is utilized to determine the optimal number of clusters. The analysis iterates to minimize the within-cluster sum-of-squares, based on euclidean distance from a centroid. The elbow graph below shows the average within cluster sum-of-squares with each k (number of clusters). Ideally, the optimal number of clusters is located where there is bend (elbow) in the curve but that is not obvious from the graph. An alternative measure is the sillouette score. While the WCSS measures how closely the points are to the centroid and one another in the cluster. The sillouette score combines both the WCSS and a measure of distance between clusters. Sillouette scores close to 1 indicate a high distinctiveness of clusters while those close to -1 indicate possible misclassification. 
 
 ```python
 wcss = [] # Within-cluster sum of squares
@@ -174,9 +168,7 @@ plt.xlabel('Number of clusters (k)')
 plt.ylabel('WCSS')
 plt.show()
 ```
-
-
-    
+   
 ![png](output_14_0.png)
     
 
@@ -199,9 +191,7 @@ plt.ylabel("Silhouette score")
 plt.title("Silhouette analysis for optimal k")
 plt.show()
 ```
-
-
-    
+   
 ![png](output_15_0.png)
     
 
