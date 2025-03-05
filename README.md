@@ -31,6 +31,86 @@ This analysis is based on a Kaggle dataset of 2,000 coffee shops with data on th
 %pip install statsmodels
 ```
 
+```python
+# Research questions
+# Are there groups of coffee shops based on size, local traffic, and hours?
+# Do these groups benefit differently from marketing spend?
+```
+
+
+```python
+!pip install seaborn
+%pip install seaborn
+!pip install scikit-learn
+%pip install scikit-learn
+!pip install statsmodels
+%pip install statsmodels
+```
+
+    Requirement already satisfied: seaborn in /Applications/anaconda3/lib/python3.12/site-packages (0.13.2)
+    Requirement already satisfied: numpy!=1.24.0,>=1.20 in /Applications/anaconda3/lib/python3.12/site-packages (from seaborn) (1.26.4)
+    Requirement already satisfied: pandas>=1.2 in /Applications/anaconda3/lib/python3.12/site-packages (from seaborn) (2.2.2)
+    Requirement already satisfied: matplotlib!=3.6.1,>=3.4 in /Applications/anaconda3/lib/python3.12/site-packages (from seaborn) (3.9.2)
+    Requirement already satisfied: contourpy>=1.0.1 in /Applications/anaconda3/lib/python3.12/site-packages (from matplotlib!=3.6.1,>=3.4->seaborn) (1.2.0)
+    Requirement already satisfied: cycler>=0.10 in /Applications/anaconda3/lib/python3.12/site-packages (from matplotlib!=3.6.1,>=3.4->seaborn) (0.11.0)
+    Requirement already satisfied: fonttools>=4.22.0 in /Applications/anaconda3/lib/python3.12/site-packages (from matplotlib!=3.6.1,>=3.4->seaborn) (4.51.0)
+    Requirement already satisfied: kiwisolver>=1.3.1 in /Applications/anaconda3/lib/python3.12/site-packages (from matplotlib!=3.6.1,>=3.4->seaborn) (1.4.4)
+    Requirement already satisfied: packaging>=20.0 in /Applications/anaconda3/lib/python3.12/site-packages (from matplotlib!=3.6.1,>=3.4->seaborn) (24.1)
+    Requirement already satisfied: pillow>=8 in /Applications/anaconda3/lib/python3.12/site-packages (from matplotlib!=3.6.1,>=3.4->seaborn) (10.4.0)
+    Requirement already satisfied: pyparsing>=2.3.1 in /Applications/anaconda3/lib/python3.12/site-packages (from matplotlib!=3.6.1,>=3.4->seaborn) (3.1.2)
+    Requirement already satisfied: python-dateutil>=2.7 in /Applications/anaconda3/lib/python3.12/site-packages (from matplotlib!=3.6.1,>=3.4->seaborn) (2.9.0.post0)
+    Requirement already satisfied: pytz>=2020.1 in /Applications/anaconda3/lib/python3.12/site-packages (from pandas>=1.2->seaborn) (2024.1)
+    Requirement already satisfied: tzdata>=2022.7 in /Applications/anaconda3/lib/python3.12/site-packages (from pandas>=1.2->seaborn) (2023.3)
+    Requirement already satisfied: six>=1.5 in /Applications/anaconda3/lib/python3.12/site-packages (from python-dateutil>=2.7->matplotlib!=3.6.1,>=3.4->seaborn) (1.16.0)
+    Requirement already satisfied: seaborn in /opt/anaconda3/lib/python3.12/site-packages (0.13.2)
+    Requirement already satisfied: numpy!=1.24.0,>=1.20 in /opt/anaconda3/lib/python3.12/site-packages (from seaborn) (2.2.1)
+    Requirement already satisfied: pandas>=1.2 in /opt/anaconda3/lib/python3.12/site-packages (from seaborn) (2.2.3)
+    Requirement already satisfied: matplotlib!=3.6.1,>=3.4 in /opt/anaconda3/lib/python3.12/site-packages (from seaborn) (3.10.0)
+    Requirement already satisfied: contourpy>=1.0.1 in /opt/anaconda3/lib/python3.12/site-packages (from matplotlib!=3.6.1,>=3.4->seaborn) (1.3.1)
+    Requirement already satisfied: cycler>=0.10 in /opt/anaconda3/lib/python3.12/site-packages (from matplotlib!=3.6.1,>=3.4->seaborn) (0.12.1)
+    Requirement already satisfied: fonttools>=4.22.0 in /opt/anaconda3/lib/python3.12/site-packages (from matplotlib!=3.6.1,>=3.4->seaborn) (4.55.3)
+    Requirement already satisfied: kiwisolver>=1.3.1 in /opt/anaconda3/lib/python3.12/site-packages (from matplotlib!=3.6.1,>=3.4->seaborn) (1.4.8)
+    Requirement already satisfied: packaging>=20.0 in /opt/anaconda3/lib/python3.12/site-packages (from matplotlib!=3.6.1,>=3.4->seaborn) (24.1)
+    Requirement already satisfied: pillow>=8 in /opt/anaconda3/lib/python3.12/site-packages (from matplotlib!=3.6.1,>=3.4->seaborn) (10.4.0)
+    Requirement already satisfied: pyparsing>=2.3.1 in /opt/anaconda3/lib/python3.12/site-packages (from matplotlib!=3.6.1,>=3.4->seaborn) (3.2.1)
+    Requirement already satisfied: python-dateutil>=2.7 in /opt/anaconda3/lib/python3.12/site-packages (from matplotlib!=3.6.1,>=3.4->seaborn) (2.9.0.post0)
+    Requirement already satisfied: pytz>=2020.1 in /opt/anaconda3/lib/python3.12/site-packages (from pandas>=1.2->seaborn) (2024.1)
+    Requirement already satisfied: tzdata>=2022.7 in /opt/anaconda3/lib/python3.12/site-packages (from pandas>=1.2->seaborn) (2024.2)
+    Requirement already satisfied: six>=1.5 in /opt/anaconda3/lib/python3.12/site-packages (from python-dateutil>=2.7->matplotlib!=3.6.1,>=3.4->seaborn) (1.16.0)
+    Note: you may need to restart the kernel to use updated packages.
+    Requirement already satisfied: scikit-learn in /Applications/anaconda3/lib/python3.12/site-packages (1.5.1)
+    Requirement already satisfied: numpy>=1.19.5 in /Applications/anaconda3/lib/python3.12/site-packages (from scikit-learn) (1.26.4)
+    Requirement already satisfied: scipy>=1.6.0 in /Applications/anaconda3/lib/python3.12/site-packages (from scikit-learn) (1.13.1)
+    Requirement already satisfied: joblib>=1.2.0 in /Applications/anaconda3/lib/python3.12/site-packages (from scikit-learn) (1.4.2)
+    Requirement already satisfied: threadpoolctl>=3.1.0 in /Applications/anaconda3/lib/python3.12/site-packages (from scikit-learn) (3.5.0)
+    Requirement already satisfied: scikit-learn in /opt/anaconda3/lib/python3.12/site-packages (1.6.1)
+    Requirement already satisfied: numpy>=1.19.5 in /opt/anaconda3/lib/python3.12/site-packages (from scikit-learn) (2.2.1)
+    Requirement already satisfied: scipy>=1.6.0 in /opt/anaconda3/lib/python3.12/site-packages (from scikit-learn) (1.15.0)
+    Requirement already satisfied: joblib>=1.2.0 in /opt/anaconda3/lib/python3.12/site-packages (from scikit-learn) (1.4.2)
+    Requirement already satisfied: threadpoolctl>=3.1.0 in /opt/anaconda3/lib/python3.12/site-packages (from scikit-learn) (3.5.0)
+    Note: you may need to restart the kernel to use updated packages.
+    Requirement already satisfied: statsmodels in /Applications/anaconda3/lib/python3.12/site-packages (0.14.2)
+    Requirement already satisfied: numpy>=1.22.3 in /Applications/anaconda3/lib/python3.12/site-packages (from statsmodels) (1.26.4)
+    Requirement already satisfied: scipy!=1.9.2,>=1.8 in /Applications/anaconda3/lib/python3.12/site-packages (from statsmodels) (1.13.1)
+    Requirement already satisfied: pandas!=2.1.0,>=1.4 in /Applications/anaconda3/lib/python3.12/site-packages (from statsmodels) (2.2.2)
+    Requirement already satisfied: patsy>=0.5.6 in /Applications/anaconda3/lib/python3.12/site-packages (from statsmodels) (0.5.6)
+    Requirement already satisfied: packaging>=21.3 in /Applications/anaconda3/lib/python3.12/site-packages (from statsmodels) (24.1)
+    Requirement already satisfied: python-dateutil>=2.8.2 in /Applications/anaconda3/lib/python3.12/site-packages (from pandas!=2.1.0,>=1.4->statsmodels) (2.9.0.post0)
+    Requirement already satisfied: pytz>=2020.1 in /Applications/anaconda3/lib/python3.12/site-packages (from pandas!=2.1.0,>=1.4->statsmodels) (2024.1)
+    Requirement already satisfied: tzdata>=2022.7 in /Applications/anaconda3/lib/python3.12/site-packages (from pandas!=2.1.0,>=1.4->statsmodels) (2023.3)
+    Requirement already satisfied: six in /Applications/anaconda3/lib/python3.12/site-packages (from patsy>=0.5.6->statsmodels) (1.16.0)
+    Requirement already satisfied: statsmodels in /opt/anaconda3/lib/python3.12/site-packages (0.14.4)
+    Requirement already satisfied: numpy<3,>=1.22.3 in /opt/anaconda3/lib/python3.12/site-packages (from statsmodels) (2.2.1)
+    Requirement already satisfied: scipy!=1.9.2,>=1.8 in /opt/anaconda3/lib/python3.12/site-packages (from statsmodels) (1.15.0)
+    Requirement already satisfied: pandas!=2.1.0,>=1.4 in /opt/anaconda3/lib/python3.12/site-packages (from statsmodels) (2.2.3)
+    Requirement already satisfied: patsy>=0.5.6 in /opt/anaconda3/lib/python3.12/site-packages (from statsmodels) (1.0.1)
+    Requirement already satisfied: packaging>=21.3 in /opt/anaconda3/lib/python3.12/site-packages (from statsmodels) (24.1)
+    Requirement already satisfied: python-dateutil>=2.8.2 in /opt/anaconda3/lib/python3.12/site-packages (from pandas!=2.1.0,>=1.4->statsmodels) (2.9.0.post0)
+    Requirement already satisfied: pytz>=2020.1 in /opt/anaconda3/lib/python3.12/site-packages (from pandas!=2.1.0,>=1.4->statsmodels) (2024.1)
+    Requirement already satisfied: tzdata>=2022.7 in /opt/anaconda3/lib/python3.12/site-packages (from pandas!=2.1.0,>=1.4->statsmodels) (2024.2)
+    Requirement already satisfied: six>=1.5 in /opt/anaconda3/lib/python3.12/site-packages (from python-dateutil>=2.8.2->pandas!=2.1.0,>=1.4->statsmodels) (1.16.0)
+    Note: you may need to restart the kernel to use updated packages.
+
 
 
 ```python
@@ -75,6 +155,128 @@ print(coffee)
 
 
 ```python
+coffee.describe()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Customers</th>
+      <th>Order</th>
+      <th>Hours</th>
+      <th>Employees</th>
+      <th>Marketing</th>
+      <th>Traffic</th>
+      <th>Revenue</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>2000.000000</td>
+      <td>2000.000000</td>
+      <td>2000.000000</td>
+      <td>2000.000000</td>
+      <td>2000.000000</td>
+      <td>2000.000000</td>
+      <td>2000.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>274.296000</td>
+      <td>6.261215</td>
+      <td>11.667000</td>
+      <td>7.947000</td>
+      <td>252.614160</td>
+      <td>534.893500</td>
+      <td>1917.325940</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>129.441933</td>
+      <td>2.175832</td>
+      <td>3.438608</td>
+      <td>3.742218</td>
+      <td>141.136004</td>
+      <td>271.662295</td>
+      <td>976.202746</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>50.000000</td>
+      <td>2.500000</td>
+      <td>6.000000</td>
+      <td>2.000000</td>
+      <td>10.120000</td>
+      <td>50.000000</td>
+      <td>-58.950000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>164.000000</td>
+      <td>4.410000</td>
+      <td>9.000000</td>
+      <td>5.000000</td>
+      <td>130.125000</td>
+      <td>302.000000</td>
+      <td>1140.085000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>275.000000</td>
+      <td>6.300000</td>
+      <td>12.000000</td>
+      <td>8.000000</td>
+      <td>250.995000</td>
+      <td>540.000000</td>
+      <td>1770.775000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>386.000000</td>
+      <td>8.120000</td>
+      <td>15.000000</td>
+      <td>11.000000</td>
+      <td>375.352500</td>
+      <td>767.000000</td>
+      <td>2530.455000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>499.000000</td>
+      <td>10.000000</td>
+      <td>17.000000</td>
+      <td>14.000000</td>
+      <td>499.740000</td>
+      <td>999.000000</td>
+      <td>5114.600000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
 # Check on characteristics of dataset.
 coffee.info()
 ```
@@ -114,6 +316,18 @@ missing_values
     Revenue      0
     dtype: int64
 
+
+
+
+```python
+coffee.hist(figsize=(10, 8))  
+plt.show()
+```
+
+
+    
+![png](output_8_0.png)
+    
 
 
 
@@ -243,19 +457,7 @@ sns.heatmap(correlation_matrix, cmap='coolwarm')
 
 
     
-![png](output_8_1.png)
-    
-
-
-
-```python
-coffee.hist(figsize=(10, 8))  
-plt.show()
-```
-
-
-    
-![png](output_9_0.png)
+![png](output_10_1.png)
     
 
 
@@ -267,7 +469,7 @@ plt.show()
 
 
     
-![png](output_10_0.png)
+![png](output_11_0.png)
     
 
 
@@ -412,7 +614,7 @@ plt.show()
 
 
     
-![png](output_13_0.png)
+![png](output_14_0.png)
     
 
 
@@ -437,7 +639,7 @@ plt.show()
 
 
     
-![png](output_14_0.png)
+![png](output_15_0.png)
     
 
 
@@ -846,7 +1048,7 @@ plt.show()
 
 
     
-![png](output_19_0.png)
+![png](output_20_0.png)
     
 
 
@@ -867,7 +1069,7 @@ plt.show()
 
 
     
-![png](output_20_0.png)
+![png](output_21_0.png)
     
 
 
@@ -891,7 +1093,7 @@ plt.show()
 
 
     
-![png](output_21_0.png)
+![png](output_22_0.png)
     
 
 
@@ -914,7 +1116,7 @@ plt.show()
 
 
     
-![png](output_22_0.png)
+![png](output_23_0.png)
     
 
 
@@ -937,7 +1139,7 @@ plt.show()
 
 
     
-![png](output_23_0.png)
+![png](output_24_0.png)
     
 
 
@@ -947,29 +1149,8 @@ means_pivot = result.pivot_table(values=['Customers', 'Order', 'Hours', 'Employe
 print("\nMeans by Category (using pivot_table()):\n", means_pivot)
 ```
 
-|cluster| Customer | Employees | Hours | Order | Traffic| N | Name |
-|----------:|---------:|----------:|----------:|----------:|----:|---:|---:|
-|0 | 172.80 |  5.472477|  13.857798  |8.366651 | 361.160550 | 260 | |
-|1 | 374.36 | 6.729258 | 13.475983  |4.387293  |260.628821 | 244 | |
-|2 | 168.79 |   4.540698|  13.122093  |4.348721 | 753.093023 |236 | |
-|3 | 365.63 | 11.094262  |10.172131  |7.834139  |324.143443 |229| |
-|4 | 205.40 | 11.873077  |14.342308  |5.449846  |626.030769 |225| |
-|5 | 393.26 |   8.713592  | 9.043689  |4.595340  |752.082524| 218| |
-|6 | 191.60 |   8.560000  | 8.497778 | 8.089689  |754.480000 |210| |
-|7 | 392.16 |  5.453390  |13.737288 | 7.677161  |734.745763 |206| |
-|8 | 175.49 |  7.509524   |8.295238|  4.946238  |294.723810 |172| |
-```
-
-cluster
-    4    260
-    3    244
-    7    236
-    1    229
-    6    225
-    0    218
-    8    210
-    5    206
-    2    172    Means by Category (using pivot_table()):
+    
+    Means by Category (using pivot_table()):
                Customers  Employees      Hours     Order     Traffic
     cluster                                                        
     0        172.798165   5.472477  13.857798  8.366651  361.160550
@@ -1055,7 +1236,7 @@ print(model_H.summary())
     Model:                            OLS   Adj. R-squared:                  0.034
     Method:                 Least Squares   F-statistic:                     8.636
     Date:                Wed, 05 Mar 2025   Prob (F-statistic):            0.00365
-    Time:                        11:27:27   Log-Likelihood:                -1735.0
+    Time:                        13:09:48   Log-Likelihood:                -1735.0
     No. Observations:                 218   AIC:                             3474.
     Df Residuals:                     216   BIC:                             3481.
     Df Model:                           1                                         
@@ -1081,7 +1262,7 @@ print(model_H.summary())
     Model:                            OLS   Adj. R-squared:                  0.097
     Method:                 Least Squares   F-statistic:                     25.42
     Date:                Wed, 05 Mar 2025   Prob (F-statistic):           9.44e-07
-    Time:                        11:27:27   Log-Likelihood:                -1806.6
+    Time:                        13:09:48   Log-Likelihood:                -1806.6
     No. Observations:                 229   AIC:                             3617.
     Df Residuals:                     227   BIC:                             3624.
     Df Model:                           1                                         
@@ -1107,7 +1288,7 @@ print(model_H.summary())
     Model:                            OLS   Adj. R-squared:                  0.193
     Method:                 Least Squares   F-statistic:                     41.91
     Date:                Wed, 05 Mar 2025   Prob (F-statistic):           9.85e-10
-    Time:                        11:27:27   Log-Likelihood:                -1273.3
+    Time:                        13:09:48   Log-Likelihood:                -1273.3
     No. Observations:                 172   AIC:                             2551.
     Df Residuals:                     170   BIC:                             2557.
     Df Model:                           1                                         
@@ -1133,7 +1314,7 @@ print(model_H.summary())
     Model:                            OLS   Adj. R-squared:                  0.059
     Method:                 Least Squares   F-statistic:                     16.35
     Date:                Wed, 05 Mar 2025   Prob (F-statistic):           7.07e-05
-    Time:                        11:27:27   Log-Likelihood:                -1966.7
+    Time:                        13:09:48   Log-Likelihood:                -1966.7
     No. Observations:                 244   AIC:                             3937.
     Df Residuals:                     242   BIC:                             3944.
     Df Model:                           1                                         
@@ -1159,7 +1340,7 @@ print(model_H.summary())
     Model:                            OLS   Adj. R-squared:                  0.179
     Method:                 Least Squares   F-statistic:                     57.48
     Date:                Wed, 05 Mar 2025   Prob (F-statistic):           6.18e-13
-    Time:                        11:27:27   Log-Likelihood:                -2023.0
+    Time:                        13:09:48   Log-Likelihood:                -2023.0
     No. Observations:                 260   AIC:                             4050.
     Df Residuals:                     258   BIC:                             4057.
     Df Model:                           1                                         
@@ -1185,7 +1366,7 @@ print(model_H.summary())
     Model:                            OLS   Adj. R-squared:                  0.069
     Method:                 Least Squares   F-statistic:                     16.08
     Date:                Wed, 05 Mar 2025   Prob (F-statistic):           8.53e-05
-    Time:                        11:27:27   Log-Likelihood:                -1650.9
+    Time:                        13:09:48   Log-Likelihood:                -1650.9
     No. Observations:                 206   AIC:                             3306.
     Df Residuals:                     204   BIC:                             3313.
     Df Model:                           1                                         
@@ -1211,7 +1392,7 @@ print(model_H.summary())
     Model:                            OLS   Adj. R-squared:                  0.125
     Method:                 Least Squares   F-statistic:                     33.02
     Date:                Wed, 05 Mar 2025   Prob (F-statistic):           2.97e-08
-    Time:                        11:27:27   Log-Likelihood:                -1805.7
+    Time:                        13:09:48   Log-Likelihood:                -1805.7
     No. Observations:                 225   AIC:                             3615.
     Df Residuals:                     223   BIC:                             3622.
     Df Model:                           1                                         
@@ -1237,7 +1418,7 @@ print(model_H.summary())
     Model:                            OLS   Adj. R-squared:                  0.130
     Method:                 Least Squares   F-statistic:                     36.07
     Date:                Wed, 05 Mar 2025   Prob (F-statistic):           7.22e-09
-    Time:                        11:27:27   Log-Likelihood:                -1896.7
+    Time:                        13:09:48   Log-Likelihood:                -1896.7
     No. Observations:                 236   AIC:                             3797.
     Df Residuals:                     234   BIC:                             3804.
     Df Model:                           1                                         
