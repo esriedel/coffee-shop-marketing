@@ -21,160 +21,10 @@ This analysis is based on a Kaggle dataset of 2,000 coffee shops with data on th
 
 * Revenue: Daily Revenue ($)
 
-## Exploration of Data
-```python
-!pip install seaborn
-%pip install seaborn
-!pip install scikit-learn
-%pip install scikit-learn
-!pip install statsmodels
-%pip install statsmodels
-```
+## Description of Data
 
-```python
-# Research questions
-# Are there groups of coffee shops based on size, local traffic, and hours?
-# Do these groups benefit differently from marketing spend?
-```
+A quick review of the variables showed no missing variables and each variable was either a float or integer. The tables and graphs below show the distribution properties of each variable. Only Revenue approximates a normal distribution with the other variables having a roughly uniform distrbution. 
 
-
-```python
-!pip install seaborn
-%pip install seaborn
-!pip install scikit-learn
-%pip install scikit-learn
-!pip install statsmodels
-%pip install statsmodels
-```
-
-    Requirement already satisfied: seaborn in /Applications/anaconda3/lib/python3.12/site-packages (0.13.2)
-    Requirement already satisfied: numpy!=1.24.0,>=1.20 in /Applications/anaconda3/lib/python3.12/site-packages (from seaborn) (1.26.4)
-    Requirement already satisfied: pandas>=1.2 in /Applications/anaconda3/lib/python3.12/site-packages (from seaborn) (2.2.2)
-    Requirement already satisfied: matplotlib!=3.6.1,>=3.4 in /Applications/anaconda3/lib/python3.12/site-packages (from seaborn) (3.9.2)
-    Requirement already satisfied: contourpy>=1.0.1 in /Applications/anaconda3/lib/python3.12/site-packages (from matplotlib!=3.6.1,>=3.4->seaborn) (1.2.0)
-    Requirement already satisfied: cycler>=0.10 in /Applications/anaconda3/lib/python3.12/site-packages (from matplotlib!=3.6.1,>=3.4->seaborn) (0.11.0)
-    Requirement already satisfied: fonttools>=4.22.0 in /Applications/anaconda3/lib/python3.12/site-packages (from matplotlib!=3.6.1,>=3.4->seaborn) (4.51.0)
-    Requirement already satisfied: kiwisolver>=1.3.1 in /Applications/anaconda3/lib/python3.12/site-packages (from matplotlib!=3.6.1,>=3.4->seaborn) (1.4.4)
-    Requirement already satisfied: packaging>=20.0 in /Applications/anaconda3/lib/python3.12/site-packages (from matplotlib!=3.6.1,>=3.4->seaborn) (24.1)
-    Requirement already satisfied: pillow>=8 in /Applications/anaconda3/lib/python3.12/site-packages (from matplotlib!=3.6.1,>=3.4->seaborn) (10.4.0)
-    Requirement already satisfied: pyparsing>=2.3.1 in /Applications/anaconda3/lib/python3.12/site-packages (from matplotlib!=3.6.1,>=3.4->seaborn) (3.1.2)
-    Requirement already satisfied: python-dateutil>=2.7 in /Applications/anaconda3/lib/python3.12/site-packages (from matplotlib!=3.6.1,>=3.4->seaborn) (2.9.0.post0)
-    Requirement already satisfied: pytz>=2020.1 in /Applications/anaconda3/lib/python3.12/site-packages (from pandas>=1.2->seaborn) (2024.1)
-    Requirement already satisfied: tzdata>=2022.7 in /Applications/anaconda3/lib/python3.12/site-packages (from pandas>=1.2->seaborn) (2023.3)
-    Requirement already satisfied: six>=1.5 in /Applications/anaconda3/lib/python3.12/site-packages (from python-dateutil>=2.7->matplotlib!=3.6.1,>=3.4->seaborn) (1.16.0)
-    Requirement already satisfied: seaborn in /opt/anaconda3/lib/python3.12/site-packages (0.13.2)
-    Requirement already satisfied: numpy!=1.24.0,>=1.20 in /opt/anaconda3/lib/python3.12/site-packages (from seaborn) (2.2.1)
-    Requirement already satisfied: pandas>=1.2 in /opt/anaconda3/lib/python3.12/site-packages (from seaborn) (2.2.3)
-    Requirement already satisfied: matplotlib!=3.6.1,>=3.4 in /opt/anaconda3/lib/python3.12/site-packages (from seaborn) (3.10.0)
-    Requirement already satisfied: contourpy>=1.0.1 in /opt/anaconda3/lib/python3.12/site-packages (from matplotlib!=3.6.1,>=3.4->seaborn) (1.3.1)
-    Requirement already satisfied: cycler>=0.10 in /opt/anaconda3/lib/python3.12/site-packages (from matplotlib!=3.6.1,>=3.4->seaborn) (0.12.1)
-    Requirement already satisfied: fonttools>=4.22.0 in /opt/anaconda3/lib/python3.12/site-packages (from matplotlib!=3.6.1,>=3.4->seaborn) (4.55.3)
-    Requirement already satisfied: kiwisolver>=1.3.1 in /opt/anaconda3/lib/python3.12/site-packages (from matplotlib!=3.6.1,>=3.4->seaborn) (1.4.8)
-    Requirement already satisfied: packaging>=20.0 in /opt/anaconda3/lib/python3.12/site-packages (from matplotlib!=3.6.1,>=3.4->seaborn) (24.1)
-    Requirement already satisfied: pillow>=8 in /opt/anaconda3/lib/python3.12/site-packages (from matplotlib!=3.6.1,>=3.4->seaborn) (10.4.0)
-    Requirement already satisfied: pyparsing>=2.3.1 in /opt/anaconda3/lib/python3.12/site-packages (from matplotlib!=3.6.1,>=3.4->seaborn) (3.2.1)
-    Requirement already satisfied: python-dateutil>=2.7 in /opt/anaconda3/lib/python3.12/site-packages (from matplotlib!=3.6.1,>=3.4->seaborn) (2.9.0.post0)
-    Requirement already satisfied: pytz>=2020.1 in /opt/anaconda3/lib/python3.12/site-packages (from pandas>=1.2->seaborn) (2024.1)
-    Requirement already satisfied: tzdata>=2022.7 in /opt/anaconda3/lib/python3.12/site-packages (from pandas>=1.2->seaborn) (2024.2)
-    Requirement already satisfied: six>=1.5 in /opt/anaconda3/lib/python3.12/site-packages (from python-dateutil>=2.7->matplotlib!=3.6.1,>=3.4->seaborn) (1.16.0)
-    Note: you may need to restart the kernel to use updated packages.
-    Requirement already satisfied: scikit-learn in /Applications/anaconda3/lib/python3.12/site-packages (1.5.1)
-    Requirement already satisfied: numpy>=1.19.5 in /Applications/anaconda3/lib/python3.12/site-packages (from scikit-learn) (1.26.4)
-    Requirement already satisfied: scipy>=1.6.0 in /Applications/anaconda3/lib/python3.12/site-packages (from scikit-learn) (1.13.1)
-    Requirement already satisfied: joblib>=1.2.0 in /Applications/anaconda3/lib/python3.12/site-packages (from scikit-learn) (1.4.2)
-    Requirement already satisfied: threadpoolctl>=3.1.0 in /Applications/anaconda3/lib/python3.12/site-packages (from scikit-learn) (3.5.0)
-    Requirement already satisfied: scikit-learn in /opt/anaconda3/lib/python3.12/site-packages (1.6.1)
-    Requirement already satisfied: numpy>=1.19.5 in /opt/anaconda3/lib/python3.12/site-packages (from scikit-learn) (2.2.1)
-    Requirement already satisfied: scipy>=1.6.0 in /opt/anaconda3/lib/python3.12/site-packages (from scikit-learn) (1.15.0)
-    Requirement already satisfied: joblib>=1.2.0 in /opt/anaconda3/lib/python3.12/site-packages (from scikit-learn) (1.4.2)
-    Requirement already satisfied: threadpoolctl>=3.1.0 in /opt/anaconda3/lib/python3.12/site-packages (from scikit-learn) (3.5.0)
-    Note: you may need to restart the kernel to use updated packages.
-    Requirement already satisfied: statsmodels in /Applications/anaconda3/lib/python3.12/site-packages (0.14.2)
-    Requirement already satisfied: numpy>=1.22.3 in /Applications/anaconda3/lib/python3.12/site-packages (from statsmodels) (1.26.4)
-    Requirement already satisfied: scipy!=1.9.2,>=1.8 in /Applications/anaconda3/lib/python3.12/site-packages (from statsmodels) (1.13.1)
-    Requirement already satisfied: pandas!=2.1.0,>=1.4 in /Applications/anaconda3/lib/python3.12/site-packages (from statsmodels) (2.2.2)
-    Requirement already satisfied: patsy>=0.5.6 in /Applications/anaconda3/lib/python3.12/site-packages (from statsmodels) (0.5.6)
-    Requirement already satisfied: packaging>=21.3 in /Applications/anaconda3/lib/python3.12/site-packages (from statsmodels) (24.1)
-    Requirement already satisfied: python-dateutil>=2.8.2 in /Applications/anaconda3/lib/python3.12/site-packages (from pandas!=2.1.0,>=1.4->statsmodels) (2.9.0.post0)
-    Requirement already satisfied: pytz>=2020.1 in /Applications/anaconda3/lib/python3.12/site-packages (from pandas!=2.1.0,>=1.4->statsmodels) (2024.1)
-    Requirement already satisfied: tzdata>=2022.7 in /Applications/anaconda3/lib/python3.12/site-packages (from pandas!=2.1.0,>=1.4->statsmodels) (2023.3)
-    Requirement already satisfied: six in /Applications/anaconda3/lib/python3.12/site-packages (from patsy>=0.5.6->statsmodels) (1.16.0)
-    Requirement already satisfied: statsmodels in /opt/anaconda3/lib/python3.12/site-packages (0.14.4)
-    Requirement already satisfied: numpy<3,>=1.22.3 in /opt/anaconda3/lib/python3.12/site-packages (from statsmodels) (2.2.1)
-    Requirement already satisfied: scipy!=1.9.2,>=1.8 in /opt/anaconda3/lib/python3.12/site-packages (from statsmodels) (1.15.0)
-    Requirement already satisfied: pandas!=2.1.0,>=1.4 in /opt/anaconda3/lib/python3.12/site-packages (from statsmodels) (2.2.3)
-    Requirement already satisfied: patsy>=0.5.6 in /opt/anaconda3/lib/python3.12/site-packages (from statsmodels) (1.0.1)
-    Requirement already satisfied: packaging>=21.3 in /opt/anaconda3/lib/python3.12/site-packages (from statsmodels) (24.1)
-    Requirement already satisfied: python-dateutil>=2.8.2 in /opt/anaconda3/lib/python3.12/site-packages (from pandas!=2.1.0,>=1.4->statsmodels) (2.9.0.post0)
-    Requirement already satisfied: pytz>=2020.1 in /opt/anaconda3/lib/python3.12/site-packages (from pandas!=2.1.0,>=1.4->statsmodels) (2024.1)
-    Requirement already satisfied: tzdata>=2022.7 in /opt/anaconda3/lib/python3.12/site-packages (from pandas!=2.1.0,>=1.4->statsmodels) (2024.2)
-    Requirement already satisfied: six>=1.5 in /opt/anaconda3/lib/python3.12/site-packages (from python-dateutil>=2.8.2->pandas!=2.1.0,>=1.4->statsmodels) (1.16.0)
-    Note: you may need to restart the kernel to use updated packages.
-
-
-
-```python
-import pandas as pd
-import numpy as np
-import seaborn as sns
-import matplotlib.pyplot as plt
-from sklearn.linear_model import LinearRegression
-from sklearn.preprocessing import StandardScaler
-from sklearn.cluster import KMeans
-from sklearn.metrics import silhouette_score
-from sklearn.model_selection import train_test_split
-import statsmodels.api as sm
-```
-
-
-```python
-coffee=pd.read_csv('coffee_shop_revenue.csv')
-```
-
-
-```python
-coffee.rename(columns={'Number_of_Customers_Per_Day': 'Customers', 'Average_Order_Value': 'Order', 'Operating_Hours_Per_Day': 'Hours', 'Number_of_Employees': 'Employees', 'Marketing_Spend_Per_Day': 'Marketing', 'Location_Foot_Traffic': 'Traffic', 'Daily_Revenue': 'Revenue'}, inplace=True)
-print(coffee)
-```
-
-          Customers  Order  Hours  Employees  Marketing  Traffic  Revenue
-    0           152   6.74     14          4     106.62       97  1547.81
-    1           485   4.50     12          8      57.83      744  2084.68
-    2           398   9.09      6          6      91.76      636  3118.39
-    3           320   8.48     17          4     462.63      770  2912.20
-    4           156   7.44     17          2     412.52      232  1663.42
-    ...         ...    ...    ...        ...        ...      ...      ...
-    1995        372   6.41     11          4     466.11      913  2816.85
-    1996        105   3.01     11          7      12.62      235   337.97
-    1997         89   5.28     16          9     376.64      310   951.34
-    1998        403   9.41      7         12     452.49      577  4266.21
-    1999         89   6.88     13         14      78.46      322   914.24
-    
-    [2000 rows x 7 columns]
-
-
-
-```python
-coffee.describe()
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -274,62 +124,11 @@ coffee.describe()
 </div>
 
 
-
-
-```python
-# Check on characteristics of dataset.
-coffee.info()
-```
-
-    <class 'pandas.core.frame.DataFrame'>
-    RangeIndex: 2000 entries, 0 to 1999
-    Data columns (total 7 columns):
-     #   Column     Non-Null Count  Dtype  
-    ---  ------     --------------  -----  
-     0   Customers  2000 non-null   int64  
-     1   Order      2000 non-null   float64
-     2   Hours      2000 non-null   int64  
-     3   Employees  2000 non-null   int64  
-     4   Marketing  2000 non-null   float64
-     5   Traffic    2000 non-null   int64  
-     6   Revenue    2000 non-null   float64
-    dtypes: float64(3), int64(4)
-    memory usage: 109.5 KB
-
-
-
-```python
-# Check on missing values.
-missing_values=coffee.isnull().sum()
-missing_values
-```
-
-
-
-
-    Customers    0
-    Order        0
-    Hours        0
-    Employees    0
-    Marketing    0
-    Traffic      0
-    Revenue      0
-    dtype: int64
-
-
-
-
-```python
-coffee.hist(figsize=(10, 8))  
-plt.show()
-```
-
-
     
 ![png](output_8_0.png)
     
 
-
+## Correlations between Variables
 
 ```python
 correlation_matrix=coffee.corr(method='spearman')
