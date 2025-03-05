@@ -130,7 +130,7 @@ A quick review of the variables showed no missing variables and each variable wa
 
 ## Correlations between Variables
 
-Taking into account the distribution and differences in scales between the variables, Spearman rank correlations are used to examine the associations between variables. The heatmap below shows the level of correlation with most pairs having low levels of correlation (blue and dark blue). A further review of scatter plots between variables shows that the relationships that do exist appear to be linear. 
+Taking into account the distribution and differences in scales between the variables, Spearman rank correlations are used to examine the associations between variables. The heatmap below shows the level of correlation with most pairs having low levels of correlation (blue and dark blue). Not unexpectedly, the strongest relationshipss are between revenue, the number of customers, and the average order per customer. A modest relationship does exist with the amount of daily marketing spend and daily revenue, however, as well. A further review of scatter plots between variables shows that the relationships that do exist appear to be linear. 
 
 
 ### Spearman Rank Correlations Among Variables
@@ -145,120 +145,12 @@ Taking into account the distribution and differences in scales between the varia
 
 ## Cluster Analysis of Data
 
-```python
-scaler = StandardScaler()
-
-shop = scaler.fit_transform(coffee[['Customers','Order', 'Hours', 'Employees', 'Traffic']])
-
-scaler = StandardScaler()
-
-scaler_df = scaler.fit_transform(coffee[['Customers', 'Order', 'Hours', 'Employees', 'Traffic']])
-
-# Convert the NumPy array to a DataFrame
-shop = pd.DataFrame(scaler_df, columns=['Customers', 'Order', 'Hours', 'Employees', 'Traffic'])
-
-# Now you can use describe() on the DataFrame
-shop.describe()
-
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Customers</th>
-      <th>Order</th>
-      <th>Hours</th>
-      <th>Employees</th>
-      <th>Traffic</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>2.000000e+03</td>
-      <td>2.000000e+03</td>
-      <td>2.000000e+03</td>
-      <td>2.000000e+03</td>
-      <td>2.000000e+03</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>5.506706e-17</td>
-      <td>1.154632e-17</td>
-      <td>7.283063e-17</td>
-      <td>-1.243450e-17</td>
-      <td>-6.394885e-17</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>1.000250e+00</td>
-      <td>1.000250e+00</td>
-      <td>1.000250e+00</td>
-      <td>1.000250e+00</td>
-      <td>1.000250e+00</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>-1.733226e+00</td>
-      <td>-1.729065e+00</td>
-      <td>-1.648463e+00</td>
-      <td>-1.589562e+00</td>
-      <td>-1.785359e+00</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>-8.523017e-01</td>
-      <td>-8.510206e-01</td>
-      <td>-7.757986e-01</td>
-      <td>-7.876979e-01</td>
-      <td>-8.575049e-01</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>5.440092e-03</td>
-      <td>1.782982e-02</td>
-      <td>9.686574e-02</td>
-      <td>1.416627e-02</td>
-      <td>1.880194e-02</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>8.631819e-01</td>
-      <td>8.545006e-01</td>
-      <td>9.695301e-01</td>
-      <td>8.160304e-01</td>
-      <td>8.546072e-01</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>1.736379e+00</td>
-      <td>1.718754e+00</td>
-      <td>1.551306e+00</td>
-      <td>1.617895e+00</td>
-      <td>1.708822e+00</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
+A k-means cluster analysis is used to see if there are distinct groups of coffee shops based on qualities about the shop and its operations. To avoid the disproportionate influence of one variable over another due to scale, a standard scaler is applied to the following variables used in the cluster analysis:
+* Customers
+* Order
+* Hours
+* Employees
+* Traffic
 
 
 
