@@ -130,148 +130,20 @@ A quick review of the variables showed no missing variables and each variable wa
 
 ## Correlations between Variables
 
-```python
-correlation_matrix=coffee.corr(method='spearman')
-correlation_matrix
-```
+Taking into account the distribution and differences in scales between the variables, Spearman rank correlations are used to examine the associations between variables. The heatmap below shows the level of correlation with most pairs having low levels of correlation (blue and dark blue). A further review of scatter plots between variables shows that the relationships that do exist appear to be linear. 
 
 
+### Spearman Rank Correlations Among Variables
 
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Customers</th>
-      <th>Order</th>
-      <th>Hours</th>
-      <th>Employees</th>
-      <th>Marketing</th>
-      <th>Traffic</th>
-      <th>Revenue</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Customers</th>
-      <td>1.000000</td>
-      <td>-0.014640</td>
-      <td>-0.000548</td>
-      <td>0.000234</td>
-      <td>0.027216</td>
-      <td>-0.000989</td>
-      <td>0.751988</td>
-    </tr>
-    <tr>
-      <th>Order</th>
-      <td>-0.014640</td>
-      <td>1.000000</td>
-      <td>-0.016621</td>
-      <td>0.010852</td>
-      <td>0.019729</td>
-      <td>0.017450</td>
-      <td>0.515663</td>
-    </tr>
-    <tr>
-      <th>Hours</th>
-      <td>-0.000548</td>
-      <td>-0.016621</td>
-      <td>1.000000</td>
-      <td>-0.030340</td>
-      <td>0.019644</td>
-      <td>0.014904</td>
-      <td>-0.005695</td>
-    </tr>
-    <tr>
-      <th>Employees</th>
-      <td>0.000234</td>
-      <td>0.010852</td>
-      <td>-0.030340</td>
-      <td>1.000000</td>
-      <td>0.026757</td>
-      <td>-0.041735</td>
-      <td>-0.000293</td>
-    </tr>
-    <tr>
-      <th>Marketing</th>
-      <td>0.027216</td>
-      <td>0.019729</td>
-      <td>0.019644</td>
-      <td>0.026757</td>
-      <td>1.000000</td>
-      <td>-0.012289</td>
-      <td>0.252762</td>
-    </tr>
-    <tr>
-      <th>Traffic</th>
-      <td>-0.000989</td>
-      <td>0.017450</td>
-      <td>0.014904</td>
-      <td>-0.041735</td>
-      <td>-0.012289</td>
-      <td>1.000000</td>
-      <td>0.013800</td>
-    </tr>
-    <tr>
-      <th>Revenue</th>
-      <td>0.751988</td>
-      <td>0.515663</td>
-      <td>-0.005695</td>
-      <td>-0.000293</td>
-      <td>0.252762</td>
-      <td>0.013800</td>
-      <td>1.000000</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-```python
-sns.heatmap(correlation_matrix, cmap='coolwarm')
-```
-
-
-
-
-    <Axes: >
-
-
-
-
-    
 ![png](output_10_1.png)
     
 
+### Scatter Plots Between Variables 
 
-
-```python
-sns.pairplot(coffee)
-plt.show()
-```
-
-
-    
 ![png](output_11_0.png)
     
 
-
+## Cluster Analysis of Data
 
 ```python
 scaler = StandardScaler()
