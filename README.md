@@ -1,11 +1,27 @@
 # coffee-shop-marketing
-```python
-# Research questions
-# Are there groups of coffee shops based on size, local traffic, and hours?
-# Do these groups benefit differently from marketing spend?
-```
 
+## Introduction
 
+This analysis is based on a Kaggle dataset of 2,000 coffee shops with data on the coffee shop itself, its daily operations, and revenue. The analysis focuses on two questions:
+1. Are there meaningful types of coffee shops?
+2. Does these groups benefit differently from marketing?
+
+### Variables
+* Customers: Number of Customers Per Day 
+
+* Order: Average Order Value ($) 
+
+* Hours: Operating Hours Per Day
+
+* Employees: Number of Employees
+
+* Marketing: Marketing Spend Per Day ($)
+
+* Traffic: Location Foot Traffic (people/hour)
+
+* Revenue: Daily Revenue ($)
+
+## Exploration of Data
 ```python
 !pip install seaborn
 %pip install seaborn
