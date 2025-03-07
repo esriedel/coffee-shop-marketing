@@ -210,7 +210,21 @@ plt.show()
     
     
 ![png](output_24_0.png)
-    
+
+
+### Cluster by Descriptor
+
+|Cluster|Descriptor|Customers|Order|Hours|Employees|Traffic|
+|---:|---:|---:|---:|---:|---:|---:|
+|0| Speciality Hangout|Low|High|High|Low|Low|
+|1| Drive Thru Chain|High|Low|High|Medium|Low|
+|2| Hybrid Coffee Shop|Low|Low|Medium|Low|High|
+|3| Suburban Cafe|High|High|Medium|High|Low|
+|4| Startup Cafe|Low|Medium|High|High|Medium|
+|5| Downtown Morning Rush|High|Low|Low|Medium|High|
+|6| Downtown Boutique|Low|High|Low|Medium|High|
+|7| Coffee Bar|High|High|High|Low|High|
+|8| Neighborhood Nonprofit|Low|Low|Low|Medium|Low|
 
 
 
