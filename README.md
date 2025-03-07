@@ -227,12 +227,15 @@ a 0.5 standard deviation of the overall mean (either below or above the mean of 
 ![png](output_24_0.png)
 
 
-### Cluster by Descriptor
-
-
-
-
 ## Predicting the Impact of Marketing Spend on Revenue
+
+A series of univariate OLS regression models was run, predicting the impact of daily marketing spend on daily revenue for each of the clusters. The results are summarized below and suggest that marketin dollars would be better spent out some types of coffee shops than others. For each model the coefficients for the constant and marketing spend were statistically significant (p < .01). Using the original scales for these models (rather than standardizing) allows for easier interpretation.
+
+Cluster 0 (Speciality Hangout) and 8 (Neighborhood Nonprofit) will see little benefit from marketing with the coefficients indicating basically a 1:1 return from marketing investment. Indeed the models suggest that marketing accounts for very little of revenue.
+
+On the opposite end, Clusters 4, 6, and 7, allow show the potential to have a nearly 2:1 return on revenue from each dollar invested into marketing. 
+
+
 
 |Cluster|Descriptor|R-squared|B0|Marketing|
 |---:|---:|---:|---:|---:|
