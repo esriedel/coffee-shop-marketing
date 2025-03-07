@@ -196,6 +196,21 @@ plt.show()
     
 ## Characteristics of Clusters
 
+Based on the cluster analysis, nine clusters were identified. The chart below shows how each of those clusters rated based on the standard scaler values. If the mean for a cluster was within
+a 0.5 standard deviation of the overall mean (either below or above the mean of 0), then it was rated as "Medium". Means for cluster that fell below a 0.5 standard deviation below the overall mean were rated as "Low" while those clusters with a mean that was above a 0.5 standard deviation for the overall mean were rated as "High". 
+
+
+|Cluster|Descriptor|Customers|Order|Hours|Employees|Traffic|
+|---:|---:|---:|---:|---:|---:|---:|
+|0| Speciality Hangout|Low|High|High|Low|Low|
+|1| Drive Thru Chain|High|Low|High|Medium|Low|
+|2| Hybrid Coffee Shop|Low|Low|Medium|Low|High|
+|3| Suburban Cafe|High|High|Medium|High|Low|
+|4| Startup Cafe|Low|Medium|High|High|Medium|
+|5| Downtown Morning Rush|High|Low|Low|Medium|High|
+|6| Downtown Boutique|Low|High|Low|Medium|High|
+|7| Coffee Bar|High|High|High|Low|High|
+|8| Neighborhood Nonprofit|Low|Low|Low|Medium|Low|
    
 ![png](output_20_0.png)
     
@@ -214,17 +229,6 @@ plt.show()
 
 ### Cluster by Descriptor
 
-|Cluster|Descriptor|Customers|Order|Hours|Employees|Traffic|
-|---:|---:|---:|---:|---:|---:|---:|
-|0| Speciality Hangout|Low|High|High|Low|Low|
-|1| Drive Thru Chain|High|Low|High|Medium|Low|
-|2| Hybrid Coffee Shop|Low|Low|Medium|Low|High|
-|3| Suburban Cafe|High|High|Medium|High|Low|
-|4| Startup Cafe|Low|Medium|High|High|Medium|
-|5| Downtown Morning Rush|High|Low|Low|Medium|High|
-|6| Downtown Boutique|Low|High|Low|Medium|High|
-|7| Coffee Bar|High|High|High|Low|High|
-|8| Neighborhood Nonprofit|Low|Low|Low|Medium|Low|
 
 
 
