@@ -194,171 +194,27 @@ plt.show()
    
 ![png](output_15_0.png)
     
+## Characteristics of Clusters
 
-
-
-```python
-kmeans = KMeans(n_clusters=9, random_state=42, n_init='auto') 
-kmeans.fit(shop)
-
-clusters = kmeans.labels_
-
-coffee2['cluster'] = clusters
-
-```
-
-```python
-sns.boxplot(x="cluster", y="Hours", data=coffee2)
-
-mean_value = coffee2['Hours'].mean()
-
-plt.axhline(y=mean_value, color='r', linestyle='--', label=f'Mean: {mean_value:.2f}')
-
-plt.legend()
-
-plt.show()
-
-```
-
-
-    
+   
 ![png](output_20_0.png)
     
-
-
-
-```python
-sns.boxplot(x="cluster", y="Employees", data=coffee2)
-
-mean_value = coffee2['Employees'].mean()
-
-plt.axhline(y=mean_value, color='r', linestyle='--', label=f'Mean: {mean_value:.2f}')
-
-plt.legend()
-
-plt.show()
-```
-
-
-    
+   
 ![png](output_21_0.png)
     
-
-
-
-```python
-sns.boxplot(x="cluster", y="Customers", data=coffee2)
-
-mean_value = coffee2['Customers'].mean()
-
-plt.axhline(y=mean_value, color='r', linestyle='--', label=f'Mean: {mean_value:.2f}')
-
-plt.legend()
-
-plt.show()
-
-```
-
-
     
 ![png](output_22_0.png)
     
-
-
-
-```python
-sns.boxplot(x="cluster", y="Order", data=coffee2)
-
-mean_value = coffee2['Order'].mean()
-
-plt.axhline(y=mean_value, color='r', linestyle='--', label=f'Mean: {mean_value:.2f}')
-
-plt.legend()
-
-plt.show()
-
-```
-
-
     
 ![png](output_23_0.png)
     
-
-
-
-```python
-sns.boxplot(x="cluster", y="Traffic", data=coffee2)
-
-mean_value = coffee2['Traffic'].mean()
-
-plt.axhline(y=mean_value, color='r', linestyle='--', label=f'Mean: {mean_value:.2f}')
-
-plt.legend()
-
-plt.show()
-```
-
-
     
 ![png](output_24_0.png)
     
 
 
 
-```python
-median_pivot = result.pivot_table(values=['Customers', 'Order', 'Hours', 'Employees', 'Traffic'], index='cluster', aggfunc='median')
-print("\nMedians by Category (using pivot_table()):\n", median_pivot)
-```
-
     
-    Medians by Category (using pivot_table()):
-              Customers  Employees  Hours  Order  Traffic
-    cluster                                             
-    0            162.5        5.0   14.0  8.630    341.5
-    1            388.0        7.0   14.0  4.250    245.0
-    2            161.5        4.0   13.0  4.140    756.0
-    3            377.0       11.0   10.0  8.015    307.5
-    4            200.0       12.0   15.0  5.380    641.0
-    5            408.5        9.0    9.0  4.330    766.0
-    6            184.0        9.0    8.0  8.320    782.0
-    7            402.5        5.0   14.0  7.805    771.0
-    8            166.5        7.0    8.0  4.870    270.0
-
-
-
-```python
-# Cluster 0: Few employees, high hours, low traffic (The Optimist)
-# Cluster 1: Low employees, Medium hours, high traffic (The Morning Rush)
-# Cluster 2: Low employees, medium hours, low traffic (The 9 to 5)
-# Cluster 3: High employees, medium hours, High traffic (High touch)
-# cluster 4: High employees, high hours, low traffic (Downtown base)
-# cluster 5: High employees, high hours, high traffic (The boutique)
-# cluster 6: Low emloyees, High hours, high traffic (Exhausted)
-```
-
-
-```python
-mean=coffee2.mean()
-print(mean)
-```
-
-    Customers           2.742960e+02
-    Order               6.261215e+00
-    Hours               1.166700e+01
-    Employees           7.947000e+00
-    Marketing           2.526142e+02
-    Traffic             5.348935e+02
-    Revenue             1.917326e+03
-    Customers_scaled    5.506706e-17
-    Order_scaled        1.154632e-17
-    Hours_scaled        7.283063e-17
-    Employees_scaled   -1.243450e-17
-    Traffic_scaled     -6.394885e-17
-    cluster             4.028500e+00
-    dtype: float64
-
-
-
 ```python
 mean_by_cluster = coffee2.groupby("cluster")[['Customers_scaled', 'Order_scaled', 'Hours_scaled', 'Employees_scaled', 'Traffic_scaled']].mean()
 print(mean_by_category)
