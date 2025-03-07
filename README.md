@@ -213,202 +213,22 @@ plt.show()
     
 
 
-|Cluster|Descriptor|Customers|Order|Hours|Employees|Traffic|
-|---:|---:|---:|---:|---:|---:|---:|   
-|0| Speciality Hangout|Low  | High | High | Low| Low | 
-|1| Drive Thru Chain| High | Low |High | Medium | Low|
-|2| Hybrid Coffee Shop| Low | Low |Medium |Low| High|
-|3| Suburban Cafe|High   | High |Medium |High|Low|
-|4| Startup Cafe|Low   | Medium |High  |High|Medium| 
-|5| Downtown Morning Rush|High   | Low |Low |Medium|High|
-|6| Downtown Boutique|Low   | High |Low |Medium|High|
+
+## Predicting the Impact of Marketing Spend on Revenue
+
+|Cluster|Descriptor|R-squared|B0|Marketing|
+|---:|---:|---:|---:|---:|
+|0| Speciality Hangout|0.038|1454.49|0.99|
+|1| Drive Thru Chain|0.101|1491.42|1.49|
+|2| Hybrid Coffee Shop|0.198|671.17|1.47|
+|3| Suburban Cafe|0.063|2559.61|1.48|
+|4| Startup Cafe|0.182|893.92|1.93|
+|5| Downtown Morning Rush|0.073|1662.73|1.43|
+|6| Downtown Boutique|0.13|1283.53|1.98|
 |7| Coffee Bar| High| High |High  |Low|High| 
 |8| Neighborhood Nonprofit|Low | Low | Low   |Medium|Low|
 
-## Predicting the Impact of Marketing Spend
-
-    Model A Summary:
-                                OLS Regression Results                            
-    ==============================================================================
-    Dep. Variable:                Revenue   R-squared:                       0.038
-    Model:                            OLS   Adj. R-squared:                  0.034
-    Method:                 Least Squares   F-statistic:                     8.636
-    Date:                Fri, 07 Mar 2025   Prob (F-statistic):            0.00365
-    Time:                        11:05:28   Log-Likelihood:                -1735.0
-    No. Observations:                 218   AIC:                             3474.
-    Df Residuals:                     216   BIC:                             3481.
-    Df Model:                           1                                         
-    Covariance Type:            nonrobust                                         
-    ==============================================================================
-                     coef    std err          t      P>|t|      [0.025      0.975]
-    ------------------------------------------------------------------------------
-    const       1454.4886     96.819     15.023      0.000    1263.658    1645.319
-    Marketing      0.9925      0.338      2.939      0.004       0.327       1.658
-    ==============================================================================
-    Omnibus:                       10.618   Durbin-Watson:                   2.195
-    Prob(Omnibus):                  0.005   Jarque-Bera (JB):               10.991
-    Skew:                           0.547   Prob(JB):                      0.00411
-    Kurtosis:                       3.122   Cond. No.                         589.
-    ==============================================================================
-    
-    Notes:
-    [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
-    Model B Summary:
-                                OLS Regression Results                            
-    ==============================================================================
-    Dep. Variable:                Revenue   R-squared:                       0.101
-    Model:                            OLS   Adj. R-squared:                  0.097
-    Method:                 Least Squares   F-statistic:                     25.42
-    Date:                Fri, 07 Mar 2025   Prob (F-statistic):           9.44e-07
-    Time:                        11:05:28   Log-Likelihood:                -1806.6
-    No. Observations:                 229   AIC:                             3617.
-    Df Residuals:                     227   BIC:                             3624.
-    Df Model:                           1                                         
-    Covariance Type:            nonrobust                                         
-    ==============================================================================
-                     coef    std err          t      P>|t|      [0.025      0.975]
-    ------------------------------------------------------------------------------
-    const       1491.4231     85.097     17.526      0.000    1323.741    1659.105
-    Marketing      1.4926      0.296      5.042      0.000       0.909       2.076
-    ==============================================================================
-    Omnibus:                       10.484   Durbin-Watson:                   2.014
-    Prob(Omnibus):                  0.005   Jarque-Bera (JB):               11.169
-    Skew:                           0.539   Prob(JB):                      0.00376
-    Kurtosis:                       2.903   Cond. No.                         571.
-    ==============================================================================
-    
-    Notes:
-    [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
-    Model C Summary:
-                                OLS Regression Results                            
-    ==============================================================================
-    Dep. Variable:                Revenue   R-squared:                       0.198
-    Model:                            OLS   Adj. R-squared:                  0.193
-    Method:                 Least Squares   F-statistic:                     41.91
-    Date:                Fri, 07 Mar 2025   Prob (F-statistic):           9.85e-10
-    Time:                        11:05:28   Log-Likelihood:                -1273.3
-    No. Observations:                 172   AIC:                             2551.
-    Df Residuals:                     170   BIC:                             2557.
-    Df Model:                           1                                         
-    Covariance Type:            nonrobust                                         
-    ==============================================================================
-                     coef    std err          t      P>|t|      [0.025      0.975]
-    ------------------------------------------------------------------------------
-    const        671.1674     64.540     10.399      0.000     543.764     798.570
-    Marketing      1.4743      0.228      6.474      0.000       1.025       1.924
-    ==============================================================================
-    Omnibus:                       10.137   Durbin-Watson:                   2.030
-    Prob(Omnibus):                  0.006   Jarque-Bera (JB):               10.641
-    Skew:                           0.609   Prob(JB):                      0.00489
-    Kurtosis:                       3.050   Cond. No.                         601.
-    ==============================================================================
-    
-    Notes:
-    [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
-    Model D Summary:
-                                OLS Regression Results                            
-    ==============================================================================
-    Dep. Variable:                Revenue   R-squared:                       0.063
-    Model:                            OLS   Adj. R-squared:                  0.059
-    Method:                 Least Squares   F-statistic:                     16.35
-    Date:                Fri, 07 Mar 2025   Prob (F-statistic):           7.07e-05
-    Time:                        11:05:28   Log-Likelihood:                -1966.7
-    No. Observations:                 244   AIC:                             3937.
-    Df Residuals:                     242   BIC:                             3944.
-    Df Model:                           1                                         
-    Covariance Type:            nonrobust                                         
-    ==============================================================================
-                     coef    std err          t      P>|t|      [0.025      0.975]
-    ------------------------------------------------------------------------------
-    const       2559.6101    110.483     23.167      0.000    2341.978    2777.242
-    Marketing      1.4825      0.367      4.044      0.000       0.760       2.205
-    ==============================================================================
-    Omnibus:                       12.536   Durbin-Watson:                   1.846
-    Prob(Omnibus):                  0.002   Jarque-Bera (JB):                5.480
-    Skew:                           0.050   Prob(JB):                       0.0646
-    Kurtosis:                       2.273   Cond. No.                         676.
-    ==============================================================================
-    
-    Notes:
-    [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
-    Model E Summary:
-                                OLS Regression Results                            
-    ==============================================================================
-    Dep. Variable:                Revenue   R-squared:                       0.182
-    Model:                            OLS   Adj. R-squared:                  0.179
-    Method:                 Least Squares   F-statistic:                     57.48
-    Date:                Fri, 07 Mar 2025   Prob (F-statistic):           6.18e-13
-    Time:                        11:05:28   Log-Likelihood:                -2023.0
-    No. Observations:                 260   AIC:                             4050.
-    Df Residuals:                     258   BIC:                             4057.
-    Df Model:                           1                                         
-    Covariance Type:            nonrobust                                         
-    ==============================================================================
-                     coef    std err          t      P>|t|      [0.025      0.975]
-    ------------------------------------------------------------------------------
-    const        893.9233     72.581     12.316      0.000     750.997    1036.850
-    Marketing      1.9340      0.255      7.581      0.000       1.432       2.436
-    ==============================================================================
-    Omnibus:                       14.807   Durbin-Watson:                   1.873
-    Prob(Omnibus):                  0.001   Jarque-Bera (JB):               16.273
-    Skew:                           0.602   Prob(JB):                     0.000293
-    Kurtosis:                       2.768   Cond. No.                         573.
-    ==============================================================================
-    
-    Notes:
-    [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
-    Model F Summary:
-                                OLS Regression Results                            
-    ==============================================================================
-    Dep. Variable:                Revenue   R-squared:                       0.073
-    Model:                            OLS   Adj. R-squared:                  0.069
-    Method:                 Least Squares   F-statistic:                     16.08
-    Date:                Fri, 07 Mar 2025   Prob (F-statistic):           8.53e-05
-    Time:                        11:05:28   Log-Likelihood:                -1650.9
-    No. Observations:                 206   AIC:                             3306.
-    Df Residuals:                     204   BIC:                             3313.
-    Df Model:                           1                                         
-    Covariance Type:            nonrobust                                         
-    ==============================================================================
-                     coef    std err          t      P>|t|      [0.025      0.975]
-    ------------------------------------------------------------------------------
-    const       1662.7274    100.402     16.561      0.000    1464.768    1860.687
-    Marketing      1.4289      0.356      4.010      0.000       0.726       2.132
-    ==============================================================================
-    Omnibus:                       13.257   Durbin-Watson:                   1.977
-    Prob(Omnibus):                  0.001   Jarque-Bera (JB):               14.673
-    Skew:                           0.650   Prob(JB):                     0.000651
-    Kurtosis:                       2.852   Cond. No.                         552.
-    ==============================================================================
-    
-    Notes:
-    [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
-    Model G Summary:
-                                OLS Regression Results                            
-    ==============================================================================
-    Dep. Variable:                Revenue   R-squared:                       0.129
-    Model:                            OLS   Adj. R-squared:                  0.125
-    Method:                 Least Squares   F-statistic:                     33.02
-    Date:                Fri, 07 Mar 2025   Prob (F-statistic):           2.97e-08
-    Time:                        11:05:28   Log-Likelihood:                -1805.7
-    No. Observations:                 225   AIC:                             3615.
-    Df Residuals:                     223   BIC:                             3622.
-    Df Model:                           1                                         
-    Covariance Type:            nonrobust                                         
-    ==============================================================================
-                     coef    std err          t      P>|t|      [0.025      0.975]
-    ------------------------------------------------------------------------------
-    const       1283.5284     98.924     12.975      0.000    1088.583    1478.474
-    Marketing      1.9847      0.345      5.747      0.000       1.304       2.665
-    ==============================================================================
-    Omnibus:                       10.657   Durbin-Watson:                   1.787
-    Prob(Omnibus):                  0.005   Jarque-Bera (JB):               11.034
-    Skew:                           0.514   Prob(JB):                      0.00402
-    Kurtosis:                       2.652   Cond. No.                         572.
-    ==============================================================================
-    
-    Notes:
-    [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+   
     Model H Summary:
                                 OLS Regression Results                            
     ==============================================================================
