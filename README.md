@@ -279,7 +279,8 @@ print(df2)
 ```
 
             Customers_scaled_recode Order_scaled_recode Hours_scaled_recode  \
-    cluster                                                                   
+    cluster 
+    
     0                           Low                High                High   
     1                          High                 Low                High   
     2                           Low                 Low              Medium   
@@ -301,6 +302,32 @@ print(df2)
     6                        Medium                  High  
     7                           Low                  High  
     8                        Medium                   Low  
+
+
+|Cluster|Descriptor|Customers|Order|Hours|Employees|Traffic|
+|---:|---:|---:|---:|---:|---:|---:|   
+|0| Optimist Boutique|Low  | High | High | Low| Low | 
+|1| Suburban Chain| High | Low |High | Medium | Low|
+|2| Coffee Cart| Low | Low |Medium |Low| High|
+|3| Destination Coffee|High   | High |Medium |High|Low|
+|4| Name1|Low   | Medium |High  |High|Medium| 
+|5| Name2|High   | Low |Low |Medium|High|
+|6| Name3|Low   | High |Low |Medium|High|
+|7| Name4| High| High |High  |Low|High| 
+|8| Name5|Low | Low | Low   |Medium|Low|
+    
+    
+            Employees_scaled_recode Traffic_scaled_recode  
+    cluster                                                
+    0                           Low                   Low  
+    1                        Medium                   Low  
+    2                           Low                  High  
+    3                          High                   Low  
+    4                          High                Medium  
+    5                        Medium                  High  
+    6                        Medium                  High  
+    7                           Low                  High  
+    8                        Medium                   Low 
 
 
 
