@@ -233,7 +233,7 @@ A series of univariate OLS regression models was run, predicting the impact of d
 
 Cluster 0 (Speciality Hangout) and 8 (Neighborhood Nonprofit) will see little benefit from marketing with the coefficients indicating basically a 1:1 return from marketing investment. Indeed the models suggest that marketing accounts for very little of revenue.
 
-On the opposite end, Clusters 4, 6, and 7, allow show the potential to have a nearly 2:1 return on revenue from each dollar invested into marketing. 
+On the opposite end, Clusters 4, 6, and 7, allow show the potential to have a nearly 2:1 return on revenue from each dollar invested into marketing. Indeed, with revenues considerably lower than the overall mean for all coffee shops, shops in clusters 4 and 6, seem to have a good opportunity to expand business. Shops in cluster 7 (Downtown Coffee Bar), however, are already doing well in daily revenue and may want to consider whether they wish to expand further. 
 
 
 
