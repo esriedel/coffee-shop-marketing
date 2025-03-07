@@ -218,42 +218,14 @@ plt.show()
 
 |Cluster|Descriptor|R-squared|B0|Marketing|
 |---:|---:|---:|---:|---:|
-|0| Speciality Hangout|0.038|1454.49|0.99|
-|1| Drive Thru Chain|0.101|1491.42|1.49|
-|2| Hybrid Coffee Shop|0.198|671.17|1.47|
-|3| Suburban Cafe|0.063|2559.61|1.48|
-|4| Startup Cafe|0.182|893.92|1.93|
-|5| Downtown Morning Rush|0.073|1662.73|1.43|
+|0| Speciality Hangout|0.04|1454.49|0.99|
+|1| Drive Thru Chain|0.10|1491.42|1.49|
+|2| Hybrid Coffee Shop|0.20|671.17|1.47|
+|3| Suburban Cafe|0.06|2559.61|1.48|
+|4| Startup Cafe|0.18|893.92|1.93|
+|5| Downtown Morning Rush|0.07|1662.73|1.43|
 |6| Downtown Boutique|0.13|1283.53|1.98|
-|7| Coffee Bar| High| High |High  |Low|High| 
-|8| Neighborhood Nonprofit|Low | Low | Low   |Medium|Low|
+|7| Coffee Bar|0.13|2523.45|2.08|
+|8| Neighborhood Nonprofit|0.08|898.91|1.00|
 
-   
-    Model H Summary:
-                                OLS Regression Results                            
-    ==============================================================================
-    Dep. Variable:                Revenue   R-squared:                       0.134
-    Model:                            OLS   Adj. R-squared:                  0.130
-    Method:                 Least Squares   F-statistic:                     36.07
-    Date:                Fri, 07 Mar 2025   Prob (F-statistic):           7.22e-09
-    Time:                        11:05:28   Log-Likelihood:                -1896.7
-    No. Observations:                 236   AIC:                             3797.
-    Df Residuals:                     234   BIC:                             3804.
-    Df Model:                           1                                         
-    Covariance Type:            nonrobust                                         
-    ==============================================================================
-                     coef    std err          t      P>|t|      [0.025      0.975]
-    ------------------------------------------------------------------------------
-    const       2523.4494    103.213     24.449      0.000    2320.104    2726.795
-    Marketing      2.0803      0.346      6.006      0.000       1.398       2.763
-    ==============================================================================
-    Omnibus:                       13.254   Durbin-Watson:                   2.043
-    Prob(Omnibus):                  0.001   Jarque-Bera (JB):                7.905
-    Skew:                           0.287   Prob(JB):                       0.0192
-    Kurtosis:                       2.311   Cond. No.                         629.
-    ==============================================================================
-    
-    Notes:
-    [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
-
-
+ 
