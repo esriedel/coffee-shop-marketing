@@ -235,9 +235,11 @@ Cluster 0 (Speciality Hangout) and 8 (Neighborhood Nonprofit) will see little be
 
 On the opposite end, Clusters 4, 6, and 7, allow show the potential to have a nearly 2:1 return on revenue from each dollar invested into marketing. Indeed, with revenues considerably lower than the overall mean for all coffee shops, shops in clusters 4 and 6, seem to have a good opportunity to expand business. Shops in cluster 7 (Downtown Coffee Bar), however, are already doing well in daily revenue and may want to consider whether they wish to expand further. 
 
+Finally, in the middle are clusters with more nuanced decisions to make. Clusters 1, 2, 3, and 5, each had coefficients for marketing spend indicating a roughly a return of one and a half times in revenue for each marketing dollar spent. Clusters 1 (Drive Thru Chain), 3 (Suburban Chain), and 5 (Downtown Morning Rush), are each, on average, doing above the mean revenue for all coffee shops already. Cluster 2, the "Hybrid Coffee Shop" which may be combining sales with other retails such as a bookstore, has lower revenue. It has a low number of customers in an otherwise busy part of town. This cluster could more clearly benefit from a marketing investment to drive greater revenue.
 
 
-|Cluster|Descriptor|R-squared|B0|Marketing|
+
+|Cluster|Descriptor|R-squared|Constant (B0)|Marketing (B1)|
 |---:|---:|---:|---:|---:|
 |0| Speciality Hangout|0.04|1454.49|0.99|
 |1| Drive Thru Chain|0.10|1491.42|1.49|
