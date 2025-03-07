@@ -306,16 +306,19 @@ print(df2)
 
 |Cluster|Descriptor|Customers|Order|Hours|Employees|Traffic|
 |---:|---:|---:|---:|---:|---:|---:|   
-|0| Optimist Boutique|Low  | High | High | Low| Low | 
-|1| Suburban Chain| High | Low |High | Medium | Low|
-|2| Coffee Cart| Low | Low |Medium |Low| High|
-|3| Destination Coffee|High   | High |Medium |High|Low|
-|4| Name1|Low   | Medium |High  |High|Medium| 
-|5| Name2|High   | Low |Low |Medium|High|
-|6| Name3|Low   | High |Low |Medium|High|
-|7| Name4| High| High |High  |Low|High| 
-|8| Name5|Low | Low | Low   |Medium|Low|
-    
+|0| Speciality Hangout|Low  | High | High | Low| Low | 
+|1| Drive Thru Chain| High | Low |High | Medium | Low|
+|2| Hybrid Coffee Shop| Low | Low |Medium |Low| High|
+|3| Suburban Cafe|High   | High |Medium |High|Low|
+|4| Startup Cafe|Low   | Medium |High  |High|Medium| 
+|5| Downtown Morning Rush|High   | Low |Low |Medium|High|
+|6| Downtown Boutique|Low   | High |Low |Medium|High|
+|7| Coffee Bar| High| High |High  |Low|High| 
+|8| Neighborhood Nonprofit|Low | Low | Low   |Medium|Low|
+
+ 
+![image](https://github.com/user-attachments/assets/a212b75e-11d4-4606-b755-81c137757039)
+
     
             Employees_scaled_recode Traffic_scaled_recode  
     cluster                                                
