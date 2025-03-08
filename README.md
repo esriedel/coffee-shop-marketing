@@ -1,10 +1,14 @@
 # coffee-shop-marketing
 
-## Introduction
+## Introduction & Summary
 
-This analysis is based on a Kaggle dataset of 2,000 coffee shops with data on the coffee shop itself, its daily operations, and revenue. The analysis focuses on two questions:
-1. Are there meaningful types of coffee shops?
-2. Does these groups benefit differently from marketing?
+This analysis is based on a Kaggle dataset of 2,000 coffee shops with data on the coffee shop itself, its daily operations, and revenue. The analysis centers on how to advise different coffeee shops on whether to invest in increased marketing spend.
+
+1. Are there different types of coffee shops?
+   * Using k-means cluster analysis, I identified 9 types of coffee shops that showed differences in daily customers, average order, hours open, number of employees, and foot traffic.
+   
+3. Does these groups benefit differently from marketing?
+   * Each cluster was fitted with a regression model of daily marketing spend on daily revenue. The impact of marketing spend ranged from barely a 1:1 return on investment to 2:1 return investment. 
 
 ### Variables
 * Customers: Number of Customers Per Day 
@@ -196,8 +200,10 @@ plt.show()
     
 ## Characteristics of Clusters
 
-Based on the cluster analysis, nine clusters were identified. The chart below shows how each of those clusters rated based on the standard scaler values. If the mean for a cluster was within
-a 0.5 standard deviation of the overall mean (either below or above the mean of 0), then it was rated as "Medium". Means for cluster that fell below a 0.5 standard deviation below the overall mean were rated as "Low" while those clusters with a mean that was above a 0.5 standard deviation for the overall mean were rated as "High". 
+Based on the cluster analysis, nine clusters were identified. The chart below shows how each of those clusters rated based on the standard scaler values. The standard scaler, as applied to all cases, produces a mean of 0 for each variable with a standard deviation of 1 (essentially a z-score). In the chart below, if the mean for a cluster was within
+a 0.5 standard deviation of the overall mean (either below or above the mean of 0), then it was rated as "Medium". Means for cluster that fell below a 0.5 standard deviation below the overall mean were rated as "Low" while those clusters with a mean that was above a 0.5 standard deviation for the overall mean were rated as "High". The descriptors are inferences roughly based on my reading of the data table with broad latitude. 
+
+The box plots below provide a further illustration of the differences by clusters and confirmation that the clusters have distinct patterns.
 
 
 |Cluster|Descriptor|Customers|Order|Hours|Employees|Traffic|
@@ -211,19 +217,25 @@ a 0.5 standard deviation of the overall mean (either below or above the mean of 
 |6| Downtown Boutique|Low|High|Low|Medium|High|
 |7| Coffee Bar|High|High|High|Low|High|
 |8| Neighborhood Nonprofit|Low|Low|Low|Medium|Low|
-   
+
+
+#### Box plot of hours open by each cluster of coffee shops
 ![png](output_20_0.png)
+
     
-   
+#### Box plot of number of employees by each cluster of coffee shops
 ![png](output_21_0.png)
+
     
-    
+#### Box plot of daily customers by each cluster of coffee shops
 ![png](output_22_0.png)
+
     
-    
+#### Box plot of average order by each cluster of coffee shops    
 ![png](output_23_0.png)
+
     
-    
+#### Box plot of daily foot traffic by each cluster of coffee shops    
 ![png](output_24_0.png)
 
 
@@ -235,7 +247,7 @@ Cluster 0 (Speciality Hangout) and 8 (Neighborhood Nonprofit) will see little be
 
 On the opposite end, Clusters 4, 6, and 7, allow show the potential to have a nearly 2:1 return on revenue from each dollar invested into marketing. Indeed, with revenues considerably lower than the overall mean for all coffee shops, shops in clusters 4 and 6, seem to have a good opportunity to expand business. Shops in cluster 7 (Downtown Coffee Bar), however, are already doing well in daily revenue and may want to consider whether they wish to expand further. 
 
-Finally, in the middle are clusters with more nuanced decisions to make. Clusters 1, 2, 3, and 5, each had coefficients for marketing spend indicating a roughly a return of one and a half times in revenue for each marketing dollar spent. Clusters 1 (Drive Thru Chain), 3 (Suburban Chain), and 5 (Downtown Morning Rush), are each, on average, doing above the mean revenue for all coffee shops already. Cluster 2, the "Hybrid Coffee Shop" which may be combining sales with other retails such as a bookstore, has lower revenue. It has a low number of customers in an otherwise busy part of town. This cluster could more clearly benefit from a marketing investment to drive greater revenue.
+Finally, in the middle are clusters with more nuanced decisions to make. Clusters 1, 2, 3, and 5, each had coefficients for marketing spend indicating a roughly a return of one and a half times in revenue for each marketing dollar spent. Clusters 1 (Drive Thru Chain), 3 (Suburban Chain), and 5 (Downtown Morning Rush), have, on average, above the mean revenue for all coffee shops already. Cluster 2, the "Hybrid Coffee Shop" which may be combining sales with other retails such as a bookstore, has lower revenue. It has a low number of customers in an otherwise busy part of town. This cluster could more clearly benefit from a marketing investment to drive greater revenue.
 
 
 
